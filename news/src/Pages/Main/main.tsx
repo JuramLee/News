@@ -1,6 +1,6 @@
 import React from 'react';
-import ListItem from './Components/ListItem';
-import Sidebar from '../../Components/Sidebar';
+import Sidebar from '../../Components/sidebar';
+import ListItem from './Components/listItem';
 
 const Main:React.FC = () => {
   return (
