@@ -12,7 +12,7 @@ const Comments = () => {
           onClick={() => setShowMore(!showMore)}>
           <img
             className={`w-8 ${!showMore && 'rotate-180'}`}
-            src='Assets/arrow.png'
+            src='/Assets/arrow.png'
             alt='내보내기 아이콘'
           />
         </button>

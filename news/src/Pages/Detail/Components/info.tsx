@@ -18,7 +18,7 @@ const DetailInfo = () => {
           <span className='px-4'>date</span>
         </div>
         <button className='border rounded-l-lg rounded-r-lg py-1 px-2 flex items-center'>
-          <img className='w-8' src='Assets/export.png' alt='내보내기 아이콘' />
+          <img className='w-8' src='/Assets/export.png' alt='내보내기 아이콘' />
         </button>
       </div>
     </div>

@@ -3,8 +3,7 @@ import Comments from './Components/comments';
 
 const Detail = () => {
   return (
-    <div className='flex w-10/12 max-w-screen-xl'>
-      <div className='w-40 h-full border border-slate-800'>SIDEBAR 임시</div>
+    <div className='flex w-full p-32 pl-10'>
       <div className='w-10/12'>
         <DetailInfo />
         <div className='p-10'>

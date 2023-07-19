@@ -1,19 +1,19 @@
 import React from 'react';
-import ListItem from './Components/ListItem';
-import Sidebar from '../../Components/Sidebar';
+import ListItem from './Components/listItem';
+import { Axios } from '../../Api/@core';
 
-const Main:React.FC = () => {
+const MainFeed: React.FC = () => {
+  // const [newsData, setNewsData] = useState('');
+  const dataTest = Axios.get('news/1.json').then((data) => console.log(data));
+
+  console.log('@@', dataTest);
   return (
-    <div className='flex flex-start h-full'>
-      <Sidebar />
-      <div className='flex flex-col w-full'>
-        <ListItem/>
-        <ListItem/>
-        <ListItem/>
-      </div>
+    <div className='flex flex-col w-full p-32 pl-10'>
+      <ListItem />
+      <ListItem />
+      <ListItem />
     </div>
-  )
-}
+  );
+};
 
-export default Main;
-
+export default MainFeed;
