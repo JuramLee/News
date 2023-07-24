@@ -1,15 +1,25 @@
 import React, { useEffect } from 'react';
 import ListItem from './Components/listItem';
 import { Axios } from '../../Api/@core';
-import { atom, useAtom } from 'jotai';
+import { atom, useSetAtom } from 'jotai';
 
-export const newsAtom = atom<any>('');
+export const newsAtom = atom('');
 
 const MainFeed: React.FC = () => {
-  const [newsData, setNewsData] = useAtom(newsAtom);
+  const setNewsAtom: any = useSetAtom(newsAtom);
+
+  const getNewsData = async () => {
+    try {
+      const res = await Axios.get('news/1.json');
+      setNewsAtom(res);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   useEffect(() => {
-    const res = Axios.get('news/1.json').then((data) => setNewsData(data.data));
-    console.log(newsData);
+    getNewsData();
+    console.log(newsAtom);
   }, []);
 
   return (
