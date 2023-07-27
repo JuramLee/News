@@ -1,12 +1,17 @@
-import React from 'react';
+import { useAtomValue } from 'jotai';
+import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import { newsDetailAtom } from '../../../Model/atoms';
+import { IDewsDetailData } from '../../../Model/types';
 
-const DetailInfo = () => {
+const DetailInfo: React.FC = () => {
+  const [newsDetail, setNewsDetail] = useState<IDewsDetailData>(
+    useAtomValue(newsDetailAtom)
+  );
+
   return (
     <div className='p-4 w-full max-w-screen-xl border-b-2 border-b-slate-950'>
-      <div className='text-xl mb-1'>
-        title title title title title title title title title
-      </div>
+      <div className='text-xl mb-1'>{newsDetail?.title}</div>
       <div className='flex justify-between'>
         <div className='flex items-center justify-center'>
           <span className='pr-4 border border-r-slate-950 border-t-0 border-b-0 border-l-0'>
