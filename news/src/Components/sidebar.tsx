@@ -1,5 +1,5 @@
 import { useSetAtom } from 'jotai';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { categoryAtom } from '../Model/atoms';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
@@ -13,14 +13,24 @@ const Sidebar: React.FC = () => {
   const [selected, setSelected] = useState('news');
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
-  console.log('searchParams', searchParams);
   const setCategoryAtom = useSetAtom(categoryAtom);
 
   const onClickCategory = (category: string): void => {
-    if (searchParams.get('id')) navigate('/');
     setSelected(category);
     setCategoryAtom(category);
+    navigate({
+      pathname: '/',
+      search: `?category=${category}`,
+    });
   };
+
+  useEffect(() => {
+    let currentCategory = searchParams.get('category');
+    const detailId = searchParams.get('id');
+    if (!currentCategory && !detailId) currentCategory = 'news';
+    setCategoryAtom(String(currentCategory));
+    setSelected(String(currentCategory));
+  }, [searchParams]);
 
   return (
     <div className='flex flex-col w-1/4 h-screen p-10 cursor-pointer'>
@@ -34,12 +44,13 @@ const Sidebar: React.FC = () => {
           key='News'>
           News
         </div>
-        <div
+        {/* api에 문제가 생김
+        <div 
           className={selected === 'newest' ? selectedStyle : normalStyle}
           onClick={() => onClickCategory('newest')}
           key='Newest'>
           Newest
-        </div>
+        </div> */}
         <div
           className={selected === 'ask' ? selectedStyle : normalStyle}
           onClick={() => onClickCategory('ask')}

@@ -17,7 +17,6 @@ const MainFeed: React.FC = () => {
       console.log(err);
     }
   };
-  console.log('currentCategory', currentCategory);
 
   useEffect(() => {
     getNewsData();
@@ -26,7 +25,7 @@ const MainFeed: React.FC = () => {
   return (
     <div className='flex flex-col w-full p-32 pl-10'>
       {newsData.map((news) => {
-        return <ListItem news={news} />;
+        return <ListItem news={news} key={news.id} />;
       })}
     </div>
   );

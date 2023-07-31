@@ -23,7 +23,6 @@ const Detail: React.FC = () => {
     }
   };
 
-  console.log('detailItem', detailItem);
   useEffect(() => {
     getNewsDetail();
   }, []);

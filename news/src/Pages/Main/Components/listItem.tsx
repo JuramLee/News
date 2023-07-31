@@ -1,6 +1,8 @@
 import React from 'react';
 import { INewsData } from '../../../Model/types';
 import { useNavigate } from 'react-router-dom';
+import { useAtomValue } from 'jotai';
+import { categoryAtom } from '../../../Model/atoms';
 
 type Props = {
   news: INewsData[number];
@@ -8,10 +10,11 @@ type Props = {
 
 const ListItem: React.FC<Props> = ({ news }) => {
   const navigate = useNavigate();
+  const currentCategory = useAtomValue(categoryAtom);
   const onClickList = () => {
     navigate({
       pathname: '/detail',
-      search: `?id=${news.id}`,
+      search: `category=${currentCategory}&?id=${news.id}`,
     });
   };
 
