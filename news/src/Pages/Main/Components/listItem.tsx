@@ -11,11 +11,9 @@ type Props = {
 const ListItem: React.FC<Props> = ({ news }) => {
   const navigate = useNavigate();
   const currentCategory = useAtomValue(categoryAtom);
+
   const onClickList = () => {
-    navigate({
-      pathname: '/detail',
-      search: `category=${currentCategory}&?id=${news.id}`,
-    });
+    navigate(`/detail?category=${currentCategory}&id=${news.id}`);
   };
 
   return (

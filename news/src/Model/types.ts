@@ -17,7 +17,7 @@ export interface INewsData
     id: number;
   }> {}
 
-export interface IDewsDetailData {
+export interface INewsDetailData {
   id: number;
   title: string;
   points: number | null;
@@ -30,7 +30,7 @@ export interface IDewsDetailData {
   type: string;
   url?: string;
   domain?: string;
-  comments: IDewsDetailData[];
-  level: number;
+  comments: INewsDetailData[];
+  level?: number;
   comments_count: number;
 }

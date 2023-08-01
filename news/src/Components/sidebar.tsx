@@ -34,7 +34,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className='flex flex-col w-1/4 h-screen p-10 cursor-pointer'>
-      <div className='w-72 my-10'>
+      <div className='w-72 my-10' onClick={() => navigate('/')}>
         <img src={Logo} alt='logo' />
       </div>
       <div>
